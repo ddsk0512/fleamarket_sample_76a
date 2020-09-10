@@ -8,7 +8,11 @@
         = render partial:'req' 
         <br>
         %p.new-content-max-images 最大１０枚までアップロードできます
-        = form.file_field :name, class: "new-content-form-area-hidden"
+        -# = form.file_field :name, class: "new-content-form-area-hidden"
+        <%= f.fields_for :images do |i| %>
+          <%= i.file_field :src %><br>
+        <% end %>
+
         <br>
 
 
