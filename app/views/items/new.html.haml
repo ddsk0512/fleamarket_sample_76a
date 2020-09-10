@@ -8,7 +8,7 @@
         = render partial:'req' 
         <br>
         %p.new-content-max-images 最大１０枚までアップロードできます
-        = fields_for :images do |i|
+        = form.fields_for :images do |i|
           = i.file_field :src
 
 
