@@ -8,9 +8,19 @@ class ItemsController < ApplicationController
     @item.images.new
   end
 
+  def create
+    @item = Product.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   private
+  
   def item_params
-    params.requite(:item).permit(:name)
+    params.require(:item).permit(:name, :price, images_attributes: [:src])
   end
   
 end
